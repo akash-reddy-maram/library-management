@@ -5,16 +5,22 @@ let spinnerEl = document.getElementById("spinner");
 
 function appendResults(book) {
     let bookDetails = document.createElement("div");
-    bookDetails.classList.add("text-center", "p-2", "col-6", "col-md-4", "col-lg-3", "col-xl-2");
+    bookDetails.id = "book" + book.bookId
+    bookDetails.classList.add("text-center", "p-2", "col-6", "col-md-4", "col-lg-3", "col-xl-2", "shadow", "book-details-card");
     resultsEl.appendChild(bookDetails);
 
     let bookImage = document.createElement("img");
     bookImage.src = book.imageLink;
     bookDetails.appendChild(bookImage);
 
+    let titleEl = document.createElement("p");
+    titleEl.classList.add("text-center", "title");
+    titleEl.textContent = book.title;
+    bookDetails.appendChild(titleEl);
+
     let authorNameEl = document.createElement("p");
-    authorNameEl.classList.add("text-center");
-    authorNameEl.textContent = book.author;
+    authorNameEl.classList.add("text-center", "author");
+    authorNameEl.textContent = "By: " + book.author;
     bookDetails.appendChild(authorNameEl);
 }
 

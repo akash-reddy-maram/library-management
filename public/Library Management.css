@@ -19,3 +19,27 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.title {
+    margin-bottom: 0px
+}
+
+.author {
+    margin-top: 0px
+}
+
+.book-details-card {
+    border-radius: 16px;
+    width: 25%;
+    transition: background 0.5s, width 0.5s;
+    margin: 5px
+}
+
+.book-details-card:hover {
+    background-color: #faf9c0;
+    /* width: 120px; */
+}
+
+.search-results {
+    width: 100%
+}

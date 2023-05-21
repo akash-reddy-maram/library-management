@@ -61,7 +61,7 @@ app.get('/data/', (req, res) => {
       return res.status(500).json({ error: 'Database connection error' });
     }
     let {title} = req.query;
-    const query = `SELECT name, image, author FROM books_dataset WHERE name LIKE "%${title}%" LIMIT 60;`;
+    const query = `SELECT book_id, name, image, author, category, concat(price," ", currency) price FROM books_dataset WHERE name LIKE "%${title}%" LIMIT 60;`;
     connection.query(query, (err, results) => {
       connection.release(); // Release the connection back to the pool
 
@@ -73,12 +73,13 @@ app.get('/data/', (req, res) => {
       // Process and send the query results
       const allBooksResponse = results.map((eachObj) => {
         return {
+          bookId : eachObj.book_id,
           imageLink : eachObj.image,
           title : eachObj.name,
           author : eachObj.author
         }
       })
-      res.send({search_results: allBooksResponse});
+      res.send({search_results: allBooksResponse, responses: allBooksResponse.length});
     });
   });
 });
