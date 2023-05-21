@@ -76,7 +76,8 @@ app.get('/data/', (req, res) => {
           bookId : eachObj.book_id,
           imageLink : eachObj.image,
           title : eachObj.name,
-          author : eachObj.author
+          author : eachObj.author,
+          price : eachObj.price
         }
       })
       res.send({search_results: allBooksResponse, responses: allBooksResponse.length});

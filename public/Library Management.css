@@ -43,3 +43,10 @@
 .search-results {
     width: 100%
 }
+
+.main-heading-add-book {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 30px;
+}

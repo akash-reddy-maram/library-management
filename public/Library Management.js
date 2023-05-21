@@ -6,7 +6,7 @@ let spinnerEl = document.getElementById("spinner");
 function appendResults(book) {
     let bookDetails = document.createElement("div");
     bookDetails.id = "book" + book.bookId
-    bookDetails.classList.add("text-center", "p-2", "col-6", "col-md-4", "col-lg-3", "col-xl-2", "shadow", "book-details-card");
+    bookDetails.classList.add("text-center", "p-2", "col-6", "col-md-4", "col-lg-3", "shadow", "book-details-card");
     resultsEl.appendChild(bookDetails);
 
     let bookImage = document.createElement("img");
@@ -17,6 +17,11 @@ function appendResults(book) {
     titleEl.classList.add("text-center", "title");
     titleEl.textContent = book.title;
     bookDetails.appendChild(titleEl);
+
+    let priceEl = document.createElement("p");
+    priceEl.classList.add("text-center", "title");
+    priceEl.textContent = "Offer price: " + book.price;
+    bookDetails.appendChild(priceEl);
 
     let authorNameEl = document.createElement("p");
     authorNameEl.classList.add("text-center", "author");
@@ -46,7 +51,7 @@ function displayResults(booksArray) {
 function getSearchResuls(searchInput) {
     spinnerEl.classList.remove("d-none");
     // let url = "https://apis.ccbp.in/book-store" + "?title=" + searchInput;
-    let url = "http://localhost:3000/data/" + "?title=" + searchInput;
+    let url = "http://192.168.1.154:3000/data/" + "?title=" + searchInput;
     console.log(url);
     let options = {
         method: "GET"
